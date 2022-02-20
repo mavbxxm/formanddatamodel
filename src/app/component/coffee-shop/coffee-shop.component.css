@@ -1,0 +1,23 @@
+    /* style="border: 3px solid black "*/
+    
+    #confirmstate {
+        background-color: #a7d8d06c;
+        width: fit-content;
+    }
+    
+    #confirmstate i {
+        color: blue;
+    }
+    
+    #confirmstate h1 {
+        font-family: "Apple Chancery", Cursive;
+    }
+    
+    h1 {
+        font-family: "Lucida Handwriting", Cursive;
+    }
+    
+    .temp {
+        background-color: #a6cfbb46;
+        width: fit-content;
+    }

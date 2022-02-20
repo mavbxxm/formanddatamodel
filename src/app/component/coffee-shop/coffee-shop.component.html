@@ -1,0 +1,57 @@
+<h1>Welcome to caffeine shop</h1>
+<h2 id="name">
+    Your Name : <i>{{coffeeForm.value.name}}</i></h2>
+<form [formGroup]="coffeeForm">
+    <div>
+        Name : <input formControlName="name">
+    </div>
+
+    <div>
+        Email : <input formControlName="email">
+        <span style="color: red;" *ngIf="coffeeForm.get('email')?.errors?.['email']">Email is invalid</span>
+    </div>
+
+    <div>
+        Phone : <input formControlName="phone">
+        <span style="color: red" *ngIf="coffeeForm.get('phone')?.errors?.['pattern']">pattern is invalid</span>
+    </div>
+
+    <div>
+        <select id="drink" formControlName="drink">
+          <option value="" selected>What Would your drink ?</option>
+          <option *ngFor="let menu of drink" [ngValue]="menu.name">{{ menu.name }}</option>
+
+          <!-- <option value="Espresso">Espresso</option>
+          <option value="Latte">Latte</option>
+          <option value="Cappuccino">Cappuccino</option>
+          <option value="Macchiato">Macchiato</option>
+          <option value="Americano">Americano</option>
+          <option value="" selected>What wound you like to drink?</option> -->
+        </select>
+    </div>
+    <div class="temp">
+
+        <p>Hot or cold</p>
+        <input type="radio" id="hot" name="tempPreference" value="hot" formControlName="tempPreference">
+        <label for="hot">Hot</label><br>
+
+        <input type="radio" id="cold" name="tempPreference" value="cold" formControlName="tempPreference">
+        <label for="cold">Cold</label><br>
+    </div>
+    <div>
+        <input type="checkbox" id="sendText" name="sendText" value="true" formControlName="sendText">
+        <label for="sendText">Send me a text message when my order is ready</label><br>
+
+    </div>
+
+    <button (click)="sub()">Place order</button>
+    <!-- [disabled]="coffeeForm.invalid" -->
+
+</form>
+
+<div *ngIf="confirmstate" id="confirmstate">
+    <h1>Order Confirmed </h1>
+    <h2>{{ coffeeForm.value.name | json }}</h2>
+
+    <i>Date Submitted : {{coffeeForm.value.Date}}</i>
+</div>
