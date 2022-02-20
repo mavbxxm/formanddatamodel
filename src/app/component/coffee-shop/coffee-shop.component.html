@@ -44,8 +44,8 @@
 
     </div>
 
-    <button (click)="sub()">Place order</button>
-    <!-- [disabled]="coffeeForm.invalid" -->
+    <button [disabled]="coffeeForm.invalid" (click)="sub()">Place order</button>
+
 
 </form>
 
